@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard de Monitoreo Ambiental</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css"
+    />
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f8f9fa;
+      }
+      .sidebar {
+        box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+        background-color: #343a40;
+      }
+      .sidebar .nav-link {
+        color: #fff;
+      }
+      .sidebar .nav-link.active {
+        color: #007bff;
+      }
+      .card {
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        border: none;
+        border-radius: 0.5rem;
+      }
+      .card-header {
+        background-color: #f8f9fa;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+        font-weight: bold;
+      }
+      .table {
+        background-color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <i class="bi bi-cloud-sun me-2"></i>Monitoreo Ambiental
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Reportes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Configuración</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+          <div class="position-sticky pt-3">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">
+                  <i class="bi bi-house-door me-2"></i> Inicio
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="bi bi-graph-up me-2"></i> Estadísticas
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="bi bi-map me-2"></i> Mapa
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="bi bi-table me-2"></i> Datos
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+          <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+          >
+            <h1 class="h2">Dashboard</h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+              <div class="btn-group me-2">
+                <button type="button" class="btn btn-sm btn-outline-secondary">
+                  Compartir
+                </button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">
+                  Exportar
+                </button>
+              </div>
+              <button
+                type="button"
+                class="btn btn-sm btn-outline-secondary dropdown-toggle"
+              >
+                <i class="bi bi-calendar"></i>
+                Esta semana
+              </button>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-3 mb-4">
+              <div class="card bg-primary text-white">
+                <div class="card-body">
+                  <h5 class="card-title">Calidad del Aire</h5>
+                  <p class="card-text display-4">Buena</p>
+                  <i class="bi bi-wind float-end" style="font-size: 2rem"></i>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 mb-4">
+              <div class="card bg-success text-white">
+                <div class="card-body">
+                  <h5 class="card-title">Temperatura</h5>
+                  <p class="card-text display-4">22°C</p>
+                  <i
+                    class="bi bi-thermometer-half float-end"
+                    style="font-size: 2rem"
+                  ></i>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 mb-4">
+              <div class="card bg-info text-white">
+                <div class="card-body">
+                  <h5 class="card-title">Humedad</h5>
+                  <p class="card-text display-4">65%</p>
+                  <i
+                    class="bi bi-droplet-half float-end"
+                    style="font-size: 2rem"
+                  ></i>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 mb-4">
+              <div class="card bg-warning text-white">
+                <div class="card-body">
+                  <h5 class="card-title">Contaminación</h5>
+                  <p class="card-text display-4">Baja</p>
+                  <i
+                    class="bi bi-cloud-haze float-end"
+                    style="font-size: 2rem"
+                  ></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-8 mb-4">
+              <div class="card">
+                <div class="card-header">Calidad del Aire en el Tiempo</div>
+                <div class="card-body">
+                  <canvas id="airQualityChart"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="card">
+                <div class="card-header">Distribución de Contaminantes</div>
+                <div class="card-body">
+                  <canvas id="pollutantsPieChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-header">Datos Detallados por Zona</div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                      <thead>
+                        <tr>
+                          <th>Zona</th>
+                          <th>Calidad del Aire</th>
+                          <th>Temperatura</th>
+                          <th>Humedad</th>
+                          <th>Nivel de Contaminación</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Centro</td>
+                          <td>Buena</td>
+                          <td>23°C</td>
+                          <td>60%</td>
+                          <td>Baja</td>
+                        </tr>
+                        <tr>
+                          <td>Norte</td>
+                          <td>Muy Buena</td>
+                          <td>21°C</td>
+                          <td>70%</td>
+                          <td>Muy Baja</td>
+                        </tr>
+                        <tr>
+                          <td>Sur</td>
+                          <td>Moderada</td>
+                          <td>25°C</td>
+                          <td>55%</td>
+                          <td>Media</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      // Datos para el gráfico de líneas
+      const airQualityData = {
+        labels: ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul"],
+        datasets: [
+          {
+            label: "Calidad del Aire (AQI)",
+            data: [50, 59, 80, 81, 56, 55, 40],
+            fill: false,
+            borderColor: "rgb(75, 192, 192)",
+            tension: 0.1,
+          },
+        ],
+      };
+
+      // Datos para el gráfico circular
+      const pollutantsData = {
+        labels: ["PM2.5", "PM10", "NO2", "O3", "CO"],
+        datasets: [
+          {
+            data: [30, 25, 15, 20, 10],
+            backgroundColor: [
+              "rgb(255, 99, 132)",
+              "rgb(54, 162, 235)",
+              "rgb(255, 205, 86)",
+              "rgb(75, 192, 192)",
+              "rgb(153, 102, 255)",
+            ],
+          },
+        ],
+      };
+
+      // Configuración del gráfico de líneas
+      const airQualityConfig = {
+        type: "line",
+        data: airQualityData,
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              position: "top",
+            },
+            title: {
+              display: true,
+              text: "Tendencia de Calidad del Aire",
+            },
+          },
+        },
+      };
+
+      // Configuración del gráfico circular
+      const pollutantsConfig = {
+        type: "pie",
+        data: pollutantsData,
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              position: "top",
+            },
+            title: {
+              display: true,
+              text: "Distribución de Contaminantes",
+            },
+          },
+        },
+      };
+
+      // Crear los gráficos
+      const airQualityChart = new Chart(
+        document.getElementById("airQualityChart"),
+        airQualityConfig
+      );
+
+      const pollutantsPieChart = new Chart(
+        document.getElementById("pollutantsPieChart"),
+        pollutantsConfig
+      );
+    </script>
+  </body>
+</html>
